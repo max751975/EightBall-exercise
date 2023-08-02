@@ -32,11 +32,13 @@ function choice(arr) {
 const EightBall = (props) => {
   const [msg, setMsg] = useState("Think of a question");
   const [color, setColor] = useState("black");
+  const [count, setCount] = useState(0);
 
   const handleClick = () => {
     const { msg, color } = choice(answers);
     setMsg(msg);
     setColor(color);
+    setCount(count + 1);
     console.log(choice(answers));
   };
 
@@ -47,6 +49,7 @@ const EightBall = (props) => {
       style={{ backgroundColor: color }}
     >
       {msg}
+      <div className="EightBall-count">{count}</div>
     </div>
   );
 };
